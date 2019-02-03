@@ -75,7 +75,7 @@ for j in range(100000):
         layer_2_error = y - layer_2
         layer_delta2 = error * sigmoid_output_to_derivative(layer_2)  # (1,1)
         layer_2_deltas.append(copy.deepcopy(layer_delta2))
-        overallError +=np.abs(error)
+        overallError += np.abs(error)
         d[binary_dim - i - 1] = np.round(layer_2[0][0])
     future_layer_1_delta = np.zeros((hidden_dim, 1))
     # 反向传播
@@ -106,3 +106,4 @@ for j in range(100000):
             out += x * pow(2, index)
         print(str(a_int) + " + " + str(b_int) + " = " + str(out))
         print("------------")
+
