@@ -1,8 +1,9 @@
 import pickle
 # save_file = open("/Applications/pywork/machhine_learning/rnn/test/list_file", "wb+")
-load_file = open("/Applications/pywork/machhine_learning/rnn/test/list_file", "rb+")
+#load_file = open("/Applications/pywork/machhine_learning/rnn/test/list_file", "rb+")
 l = list()
 l.append("a")
+l.append("b")
 print(l)
 
 
@@ -14,9 +15,11 @@ print(l)
 
 # save_list(save_file)
 
-def load(file):
-    ll=pickle.load(file)
-    print(ll)
-    print(type(ll))
+# def load(file):
+#     ll=pickle.load(file)
+#     print(ll)
+#     print(type(ll))
+#
+# load(load_file)
 
-load(load_file)
+print(len(l))
