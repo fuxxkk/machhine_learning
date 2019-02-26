@@ -4,10 +4,10 @@ from tensorflow.python import debug as tf_debug
 import matplotlib.pyplot as plt
 
 '''超参数'''
-num_steps = 8
+num_steps = 5
 batch_size = 200
 num_classes = 2
-state_size = 16
+state_size = 4
 learning_rate = 0.1
 
 
@@ -94,13 +94,13 @@ y_as_list = tf.unstack(y, num=num_steps, axis=1)
 losses = [tf.nn.sparse_softmax_cross_entropy_with_logits(labels=label, logits=logit) for logit, label in  #计算logits 和 labels 之间的稀疏softmax 交叉熵
           zip(logits, y_as_list)]
 total_loss = tf.reduce_mean(losses) #函数用于计算张量tensor沿着指定的数轴（tensor的某一维度）上的的平均值，主要用作降维或者计算tensor（图像）的平均值。
-train_step = tf.train.AdagradOptimizer(learning_rate).minimize(total_loss)
+train_step = tf.train.AdagradOptimizer(learning_rate).minimize(total_loss)  #根据学习率进行优化
 
 '''训练网络'''
 
 
 def train_rnn(num_epochs, num_steps, state_size=4, verbose=True):
-    with tf.Session() as sess:
+    with tf.Session() as sess:  #Session 是 Tensorflow 为了控制,和输出文件的执行的语句. 运行 session.run() 可以获得你要得知的运算结果, 或者是你所要运算的部分.
         sess.run(tf.global_variables_initializer())
         # sess = tf_debug.LocalCLIDebugWrapperSession(sess)
         training_losses = []
