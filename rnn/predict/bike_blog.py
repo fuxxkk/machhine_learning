@@ -7,6 +7,7 @@ from keras.layers.recurrent import LSTM, GRU
 from keras.models import Sequential, load_model
 '''
 进行时间序列预测，主要模型为 Recurrent Neural Networks (RNNs)。数据为苏州市公共自行车某个站点可借车辆数量的数据，一分钟一次。
+http://resuly.me/2017/08/16/keras-rnn-tutorial/
 '''
 np.random.seed(2017)
 
@@ -16,6 +17,7 @@ def data_bike_num(path_to_dataset='./bike_rnn.csv',
                   ratio=1.0):
     max_values = ratio * 45949
 
+    #准备数据
     with open(path_to_dataset) as f:
         data = csv.reader(f, delimiter=",")
         next(data, None)  # skip the headers
